@@ -6,6 +6,8 @@ import pandas as pd
 
 from models.Random import RandomModel
 from models.Average import AverageModel
+from models.MostCommon import MostCommonModel
+from models.QuantizedMostCommon import QuantizedMostCommon
 
 
 def get_already_downloaded(output_dir):
@@ -74,7 +76,11 @@ if __name__ == "__main__":
 
     models = [
         RandomModel(),
-        AverageModel()
+        AverageModel(),
+        MostCommonModel(),
+        QuantizedMostCommon(4),
+        QuantizedMostCommon(8),
+        QuantizedMostCommon(16)
         ]
     current_model = 0
 
