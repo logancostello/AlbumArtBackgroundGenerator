@@ -14,6 +14,9 @@ with open('data/mbdump/release-group', 'r') as f:
         release_date = rg["first-release-date"]
         primary_type = rg["primary-type"]
 
+        if rg["secondary-types"]:
+            continue
+
         if primary_type != "Album":
             continue
         print(id)
@@ -27,4 +30,4 @@ with open('data/mbdump/release-group', 'r') as f:
         ])
 
 df = pd.DataFrame(data, columns=["id", "primary_type", "title", "artists", "release_date", "genres"])
-df.to_parquet("../data/clean/release_group.parquet")
+df.to_parquet("data/clean/release_group.parquet")
